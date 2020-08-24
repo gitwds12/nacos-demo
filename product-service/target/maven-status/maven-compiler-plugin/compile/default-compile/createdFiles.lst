@@ -1,0 +1,5 @@
+org\example\controller\ProductController.class
+org\example\service\ProductService.class
+org\example\service\impl\ProductServiceImpl.class
+org\example\pojo\Product.class
+org\example\ProductApplication.class
