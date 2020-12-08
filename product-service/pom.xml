@@ -50,4 +50,21 @@
         </dependency>
     </dependencies>
 
+
+    <build>
+        <!-- 开启资源过滤，让Maven能解析资源文件中的Maven属性 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

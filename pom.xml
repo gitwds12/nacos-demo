@@ -57,4 +57,47 @@
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!-- 默认激活dev环境的配置 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- 自定义属性 env,在不同环境有不同的值 -->
+                <env>dev</env>
+                <!--还可以自定义其他属性-->
+                <pom.profile.name>dev</pom.profile.name>
+                <!--Nacos配置中心地址-->
+                <pom.nacos.ip>127.0.0.1</pom.nacos.ip>
+                <pom.nacos.port>8848</pom.nacos.port>
+                <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
+                <pom.nacos.namespace>a80f50f1-4a08-4ba1-9e82-ff188dd04fef</pom.nacos.namespace>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+                <pom.profile.name>test</pom.profile.name>
+                <!--Nacos配置中心地址-->
+                <pom.nacos.ip>127.0.0.1</pom.nacos.ip>
+                <pom.nacos.port>8848</pom.nacos.port>
+                <!--Nacos配置中心命名空间,用于支持多环境.这里必须使用ID，不能使用名称,默认为空-->
+                <pom.nacos.namespace>889d283b-abd0-4d61-ae68-d7ce41f24e50</pom.nacos.namespace>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <!-- 开启资源过滤，让Maven能解析资源文件中的Maven属性 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
 </project>
